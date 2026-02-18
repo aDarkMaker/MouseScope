@@ -20,9 +20,9 @@
 
 ## 📖 Overview | 项目简介
 
-**MouseScope Desktop** is a fully automated analysis tool for the **Mouse Tail Suspension Test (TST)**, a widely used behavioral assay in neuroscience research to evaluate depression-like phenotypes.
+**MouseScope** is a fully automated analysis tool for the **Mouse Tail Suspension Test (TST)**, a widely used behavioral assay in neuroscience research to evaluate depression-like phenotypes.
 
-**MouseScope Desktop** 是一款专为**小鼠悬尾实验（TST）**设计的全自动化分析工具，用于神经科学研究中抑郁样行为表型的评估。
+**MouseScope** 是一款专为小鼠悬尾实验（TST）设计的全自动化分析工具，用于神经科学研究中抑郁样行为表型的评估。
 
 **Key Features | 核心功能：**
 
