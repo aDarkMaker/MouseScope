@@ -10,9 +10,10 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/license-Non--Commercial%20Academic-blue" alt="License"/>
-  <img src="https://img.shields.io/badge/platform-Windows-lightgrey" alt="Platform"/>
-  <img src="https://img.shields.io/badge/python-3.9%2B-green" alt="Python"/>
+  <img src="https://img.shields.io/github/license/fujiacheng3/MouseScope" alt="License"/>
+  <img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python"/>
+  <img src="https://img.shields.io/badge/platform-Windows-lightgrey.svg" alt="Platform"/>
+  <img src="https://img.shields.io/github/stars/fujiacheng3/MouseScope?style=social" alt="GitHub stars"/>
   <img src="https://img.shields.io/badge/version-1.0-orange" alt="Version"/>
 </p>
 
@@ -63,6 +64,28 @@ Video Input → ROI Calibration → Background Subtraction
 
 ---
 
+## 📸 Screenshots | 界面展示
+
+<p align="center">
+  <img src="static/img/screenshot_main.png" alt="Main Interface" width="700" onerror="this.style.display='none'"/>
+  <br>
+  <em>Main analysis interface with real-time tracking visualization</em><br>
+  <em>主界面：实时追踪可视化</em>
+</p>
+
+<p align="center">
+  <img src="static/img/screenshot_roi.png" alt="ROI Calibration" width="700" onerror="this.style.display='none'"/>
+  <br>
+  <em>Interactive ROI selection tool</em><br>
+  <em>交互式 ROI 标定工具</em>
+</p>
+
+> 💡 **Tip**: Add your own demo GIF or screenshot to `static/img/` to showcase your software in action!
+>
+> 💡 **提示**：在 `static/img/` 中添加您自己的演示 GIF 或截图，展示软件实际运行效果！
+
+---
+
 ## 🚀 Quick Start | 快速上手
 
 ### Option 1: Pre-built EXE (Windows) | 方式一：直接使用 EXE
@@ -75,7 +98,7 @@ Video Input → ROI Calibration → Background Subtraction
 
 ```bash
 # Clone the repository
-git clone https://github.com/YourUsername/MouseScope.git
+git clone https://github.com/fujiacheng3/MouseScope.git
 cd MouseScope
 
 # Install dependencies
@@ -130,14 +153,14 @@ If you use MouseScope Desktop in your research, **please cite**:
   author  = {Fu, Jiacheng (付家丞)},
   title   = {MouseScope Desktop: Automated Mouse Tail Suspension Test Analysis Software},
   year    = {2026},
-  url     = {https://github.com/YourUsername/MouseScope},
+  url     = {https://github.com/fujiacheng3/MouseScope},
   version = {1.0}
 }
 ```
 
 **Plain text format | 纯文本格式：**
 
-> Fu, J. (2026). *MouseScope Desktop: Automated mouse tail suspension test analysis software* (Version 1.0) [Software]. GitHub. https://github.com/YourUsername/MouseScope
+> Fu, J. (2026). *MouseScope Desktop: Automated mouse tail suspension test analysis software* (Version 1.0) [Software]. GitHub. https://github.com/fujiacheng3/MouseScope
 
 ---
 
@@ -148,13 +171,13 @@ This software is **free for academic and non-commercial use only**.
 本软件**仅供学术研究和非商业用途免费使用**。
 
 | Use Case | Allowed |
-|----------|---------|
+|----------|---------||
 | Academic research 学术研究 | ✅ Free |
 | Educational use 教学使用 | ✅ Free |
 | Publication (with citation) 发表论文（需引用） | ✅ Free |
-| Commercial use 商业使用 | ❌ Contact author |
-| Enterprise internal use 企业内部使用 | ❌ Contact author |
-| CRO / pharma companies CRO/制药公司 | ❌ Contact author |
+| Commercial use (Proprietary) 商业使用（闭源） | ⚠️ License required |
+| Enterprise internal use 企业内部使用 | ⚠️ License required |
+| CRO / pharma companies CRO/制药公司 | ⚠️ License required |
 
 For commercial licensing, please contact the author.
 如需商业授权，请联系作者。

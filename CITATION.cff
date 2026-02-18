@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "MouseScope Desktop: Automated Mouse Tail Suspension Test Analysis Software"
+version: 1.0
+date-released: 2026-02-10
+url: "https://github.com/fujiacheng3/MouseScope"
+repository-code: "https://github.com/fujiacheng3/MouseScope"
+license: GPL-3.0-or-later
+authors:
+  - family-names: "Fu"
+    given-names: "Jiacheng"
+    name-particle: "付家丞"
+    email: "2583348593@qq.com"
+    affiliation: "Neuroscience Research"
+keywords:
+  - mouse
+  - tail suspension test
+  - TST
+  - behavioral analysis
+  - computer vision
+  - depression model
+  - automated analysis
+  - neuroscience
+abstract: >
+  MouseScope Desktop is a fully automated analysis tool for 
+  the Mouse Tail Suspension Test (TST), a widely used behavioral 
+  assay in neuroscience research to evaluate depression-like 
+  phenotypes. The software uses computer vision algorithms 
+  (optical flow and background subtraction) to automatically 
+  detect and quantify immobility behavior without manual scoring.
