@@ -3,125 +3,131 @@
 
 {% block extra_css %}
 <style>
-    .hero-section {
-        text-align: center;
-        padding: 8rem 0 6rem;
-        position: relative;
-    }
-
-    .hero-icon {
-        width: 110px;
-        height: 110px;
-        background: var(--primary-gradient);
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 2rem;
-        font-size: 3rem;
-        color: white;
-        box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
-        animation: heroFloat 3s ease-in-out infinite;
-    }
-
-    @keyframes heroFloat {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-    }
-
-    .hero-title {
-        font-size: 3rem;
-        font-weight: 700;
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 1rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.15rem;
-        color: var(--text-muted);
-        max-width: 550px;
-        margin: 0 auto 1.5rem;
-        line-height: 1.8;
-    }
-
-    .hero-version {
-        display: inline-block;
-        background: rgba(102, 126, 234, 0.15);
-        border: 1px solid rgba(102, 126, 234, 0.3);
-        color: var(--accent-color);
-        padding: 0.25rem 1rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        margin-bottom: 2.5rem;
-    }
-
-    .hero-actions .btn {
-        padding: 0.8rem 2.5rem;
-        font-size: 1.1rem;
-        font-weight: 600;
-        border-radius: 12px;
-        margin: 0 0.5rem;
-    }
-
-    .btn-hero-primary {
-        background: var(--primary-gradient);
-        border: none;
-        color: white;
-        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
-    }
-
-    .btn-hero-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
-        color: white;
-    }
-
-    .btn-hero-outline {
-        background: transparent;
-        border: 1.5px solid rgba(255, 255, 255, 0.2);
-        color: var(--text-secondary);
-    }
-
-    .btn-hero-outline:hover {
-        border-color: var(--accent-color);
-        color: var(--accent-color);
-        background: rgba(0, 242, 254, 0.05);
-    }
-
-    @media (max-width: 576px) {
-        .hero-title { font-size: 2rem; }
-        .hero-section { padding: 5rem 0 4rem; }
-        .hero-actions .btn { display: block; margin: 0.5rem auto; width: 80%; }
-    }
+.hero-banner {
+    background: var(--primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: var(--radius-card);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+}
+.hero-logo {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+}
+.hero-banner h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+.hero-banner .hero-subtitle {
+    font-size: 1rem;
+    opacity: 0.95;
+    max-width: 520px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.7;
+}
+.hero-banner .hero-version {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+.hero-banner .btn {
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    border-radius: var(--radius-btn);
+    margin: 0 0.35rem;
+}
+.hero-banner .btn-primary {
+    background: #fff !important;
+    color: var(--primary-dark) !important;
+}
+.hero-banner .btn-primary:hover {
+    background: #f0f4f8 !important;
+    color: var(--primary-dark) !important;
+}
+.hero-banner .btn-outline-light {
+    border: 1px solid rgba(255,255,255,0.8);
+    color: #fff;
+    background: transparent;
+}
+.hero-banner .btn-outline-light:hover {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+}
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-card);
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.feature-card:hover {
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.1);
+    border-color: rgba(37, 99, 235, 0.25);
+}
+.feature-card h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+.feature-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+@media (max-width: 576px) {
+    .hero-banner h1 { font-size: 1.75rem; }
+    .hero-banner { padding: 3rem 1rem; }
+    .hero-banner .btn { display: block; margin: 0.5rem auto; }
+}
 </style>
 {% endblock %}
 
 {% block content %}
-
-<section class="hero-section">
-    <div class="hero-icon">
-        <i class="fas fa-microscope"></i>
-    </div>
-    <h1 class="hero-title">MouseScope</h1>
+<section class="hero-banner">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="MouseScope" class="hero-logo mb-3">
+    <h1>MouseScope</h1>
     <p class="hero-subtitle" data-i18n="home.subtitle">
         基于计算机视觉的智能动物行为分析系统<br>
         专为悬尾实验（TST）设计，自动检测小鼠不动状态
     </p>
-    <div class="hero-version">
-        <i class="fas fa-tag me-1"></i><span data-i18n="home.version">Desktop Edition v1.0 · 学术研究专用</span>
-    </div>
-    <div class="hero-actions">
-        <a href="{{ url_for('upload_page') }}" class="btn btn-hero-primary">
-            <i class="fas fa-play me-2"></i><span data-i18n="home.btn.start">开始分析</span>
-        </a>
-        <a href="{{ url_for('manual') }}" class="btn btn-hero-outline">
-            <i class="fas fa-book me-2"></i><span data-i18n="home.btn.manual">查看手册</span>
-        </a>
+    <div class="hero-version"><span data-i18n="home.version">Desktop Edition v1.0 · 学术研究专用</span></div>
+    <div>
+        <a href="{{ url_for('upload_page') }}" class="btn btn-primary"><span data-i18n="home.btn.start">开始分析</span></a>
+        <a href="{{ url_for('manual') }}" class="btn btn-outline-light"><span data-i18n="home.btn.manual">查看手册</span></a>
     </div>
 </section>
 
+<div class="feature-cards">
+    <div class="feature-card">
+        <h5 data-i18n="home.feature1.title">视频上传</h5>
+        <p data-i18n="home.feature1.desc">支持网页拖拽上传或服务器本地路径，可选时间范围与输出目录</p>
+    </div>
+    <div class="feature-card">
+        <h5 data-i18n="home.feature2.title">ROI 标定</h5>
+        <p data-i18n="home.feature2.desc">体长标定、多边形 ROI 绘制与参数调试，原帧与检测结果实时对比</p>
+    </div>
+    <div class="feature-card">
+        <h5 data-i18n="home.feature3.title">结果下载</h5>
+        <p data-i18n="home.feature3.desc">分析视频、CSV 日志、不动统计与报告，支持 ZIP 打包或打开结果文件夹</p>
+    </div>
+</div>
 {% endblock %}

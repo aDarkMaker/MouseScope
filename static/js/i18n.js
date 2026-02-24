@@ -1,23 +1,15 @@
-/**
- * MouseScope i18n — 中英文切换
- * 使用方式：给元素加 data-i18n="key" 属性，在下方词典中维护对应翻译
- */
-
 const I18N = {
     zh: {
-        /* ===== Navbar ===== */
         'nav.home':           '首页',
         'nav.start':          '开始分析',
         'nav.manual':         '使用手册',
         'nav.license':        '许可协议',
         'lang.toggle':        'English',
 
-        /* ===== Footer ===== */
         'footer.rights':      'MouseScope Desktop v1.0 © 2026 All Rights Reserved | 版权所有',
         'footer.academic':    '仅限学术研究使用 · 禁止商业用途 · 禁止二次分发',
         'footer.viewlicense': '查看完整许可协议',
 
-        /* ===== License Modal ===== */
         'license.modal.title':   '用户许可协议 (EULA)',
         'license.modal.warning': '使用本软件前，请仔细阅读以下许可协议：',
         'license.modal.agree':   '我已阅读并同意以上许可协议，承诺仅将本软件用于学术研究目的',
@@ -25,13 +17,17 @@ const I18N = {
         'license.modal.accept':  '同意并继续',
         'license.loading':       '加载中...',
 
-        /* ===== Home ===== */
         'home.subtitle':     '基于计算机视觉的智能动物行为分析系统\n专为悬尾实验（TST）设计，自动检测小鼠不动状态',
         'home.version':      'Desktop Edition v1.0 · 学术研究专用',
         'home.btn.start':    '开始分析',
         'home.btn.manual':   '查看手册',
+        'home.feature1.title': '视频上传',
+        'home.feature1.desc':  '支持网页拖拽上传或服务器本地路径，可选时间范围与输出目录',
+        'home.feature2.title': 'ROI 标定',
+        'home.feature2.desc':  '体长标定、多边形 ROI 绘制与参数调试，原帧与检测结果实时对比',
+        'home.feature3.title': '结果下载',
+        'home.feature3.desc':  '分析视频、CSV 日志、不动统计与报告，支持 ZIP 打包或打开结果文件夹',
 
-        /* ===== Upload ===== */
         'upload.title':           '视频文件上传',
         'upload.tab.web':         '网页上传',
         'upload.tab.local':       '服务器本地路径',
@@ -45,7 +41,19 @@ const I18N = {
         'upload.local.or.select': '或点击选择文件',
         'upload.local.or.input':  '── 或手动输入路径 ──',
         'upload.local.label':     '视频文件/文件夹路径',
+        'upload.local.bullet1':   '拖拽文件：自动上传并填入路径',
+        'upload.local.bullet2':   '手动输入：支持文件路径和文件夹路径，每行一个',
+        'upload.local.bullet3':   '文件夹：自动扫描并批量处理文件夹下所有视频',
+        'upload.local.placeholder': '例如：\n/data/videos/mouse1.mp4\n/data/videos/batch1/',
         'upload.validate':        '验证路径',
+        'upload.validate.empty':  '请输入至少一个路径',
+        'upload.validate.novideo': '没有检测到支持的视频文件（.mp4 .avi .mov .mkv .wmv）',
+        'upload.validate.success': '{} 个路径已输入',
+        'upload.upload.success':  '{} 个文件已上传并添加到路径列表',
+        'upload.error.upload':    '上传失败: ',
+        'upload.error.retry':     '上传失败，请重试',
+        'upload.error.network':   '网络错误，请检查连接后重试',
+        'upload.suggest.prefix':  '建议: ',
         'upload.uploading':       '上传中...',
         'upload.config.title':    '分析配置',
         'upload.config.start':    '开始秒数（可选）',
@@ -56,6 +64,10 @@ const I18N = {
         'upload.config.outdir.hint': '桌面端专属：分析结果将直接保存到此文件夹，可用文件管理器直接查看',
         'upload.config.default':  '默认',
         'upload.config.submit':   '开始分析配置',
+        'upload.status.ready':    '准备上传',
+        'upload.status.uploading': '上传中',
+        'upload.status.files':    '个文件',
+        'upload.status.done':     '个文件已上传',
         'upload.side.title':      '实验信息',
         'upload.side.tst':        '悬尾实验',
         'upload.side.tst.en':     'Tail Suspension Test',
@@ -67,7 +79,6 @@ const I18N = {
         'upload.step3':           '3.分析',
         'upload.step4':           '4.结果',
 
-        /* ===== Calibrate — Step 1 ===== */
         'calib.step1':            '1. 体长标定',
         'calib.step2':            '2. ROI选择',
         'calib.step3':            '3. 参数调试',
@@ -82,7 +93,6 @@ const I18N = {
         'calib.done.pixeldist':   '体长像素距离:',
         'calib.done.ratio':       '标定比例:',
 
-        /* ===== Calibrate — Step 2 ROI ===== */
         'calib.roi.batch.p1':     '1. 批量模式：所有视频将共用同一套 ROI 配置',
         'calib.roi.batch.p2':     '2. 在画面中点击多个点绘制多边形 ROI 区域',
         'calib.roi.batch.p3':     '3. 完成一个 ROI 后点击"完成当前ROI"',
@@ -101,7 +111,6 @@ const I18N = {
         'calib.roi.list.title':   'ROI 列表',
         'calib.roi.list.empty':   '尚未绘制 ROI',
 
-        /* ===== Calibrate — Step 3 Debug ===== */
         'calib.debug.instr':      '调整检测参数，实时预览效果。确认参数后点击"开始分析"',
         'calib.debug.orig':       '原始帧',
         'calib.debug.result':     '检测结果',
@@ -124,7 +133,6 @@ const I18N = {
         'calib.debug.gen.video.hint': '(取消可加速约20%)',
         'calib.debug.btn.start':      '开始分析',
 
-        /* ===== Manual ===== */
         'manual.h1':                  '操作手册',
         'manual.subtitle':            '从视频采集到拿到结果，每一步该怎么做',
         'manual.btn.back':            '返回首页',
@@ -283,7 +291,6 @@ const I18N = {
         'manual.disclaimer.email':    'Email: 2583348593@qq.com',
         'manual.disclaimer.org':      '中国科学院生物物理研究所 (IBP, CAS)',
 
-        /* ===== License Page ===== */
         'license.page.title':        '用户许可协议 (EULA)',
         'license.page.warning':      '重要提示：本软件仅限学术研究使用，严禁用于任何商业目的，严禁二次分发。',
         'license.page.card1.title':  '学术研究 ✓',
@@ -293,7 +300,6 @@ const I18N = {
         'license.page.card3.title':  '二次分发 ✗',
         'license.page.card3.desc':   '禁止上传到公共平台传播',
 
-        /* ===== Monitor ===== */
         'monitor.title':          '实时分析监控',
         'monitor.subtitle':       '实时追踪分析进度与性能指标',
         'monitor.stop':           '停止分析',
@@ -316,24 +322,20 @@ const I18N = {
         'monitor.file.desc':      '文件说明：ZIP包含分析视频、帧数据CSV、不动时间CSV和文字报告。桌面端可直接点击"打开结果文件夹"在文件管理器中查看。',
         'monitor.perf.title':     '性能指标',
 
-        /* ===== Manual ===== */
         'manual.title':           '操作手册 - MouseScope',
     },
 
     en: {
-        /* ===== Navbar ===== */
         'nav.home':           'Home',
         'nav.start':          'Start Analysis',
         'nav.manual':         'User Manual',
         'nav.license':        'License',
         'lang.toggle':        '中文',
 
-        /* ===== Footer ===== */
         'footer.rights':      'MouseScope Desktop v1.0 © 2026 All Rights Reserved',
         'footer.academic':    'For Academic Research Only · No Commercial Use · No Redistribution',
         'footer.viewlicense': 'View Full License',
 
-        /* ===== License Modal ===== */
         'license.modal.title':   'End User License Agreement (EULA)',
         'license.modal.warning': 'Please read the following license agreement carefully before using this software:',
         'license.modal.agree':   'I have read and agree to the license agreement, and commit to using this software for academic research purposes only.',
@@ -341,13 +343,17 @@ const I18N = {
         'license.modal.accept':  'Accept & Continue',
         'license.loading':       'Loading...',
 
-        /* ===== Home ===== */
         'home.subtitle':     'AI-powered animal behavior analysis system\nDesigned for Tail Suspension Test (TST), auto-detects mouse immobility',
         'home.version':      'Desktop Edition v1.0 · Academic Research Only',
         'home.btn.start':    'Start Analysis',
         'home.btn.manual':   'User Manual',
+        'home.feature1.title': 'Upload Videos',
+        'home.feature1.desc':  'Web drag-and-drop or server local path; optional time range and output directory',
+        'home.feature2.title': 'ROI Setup',
+        'home.feature2.desc':  'Body length calibration, polygon ROI drawing, and parameter tuning with live preview',
+        'home.feature3.title': 'Download Results',
+        'home.feature3.desc':  'Analysis video, CSV logs, immobility stats and report; ZIP or open result folder',
 
-        /* ===== Upload ===== */
         'upload.title':           'Upload Video Files',
         'upload.tab.web':         'Web Upload',
         'upload.tab.local':       'Server Local Path',
@@ -361,7 +367,19 @@ const I18N = {
         'upload.local.or.select': 'Or click to select files',
         'upload.local.or.input':  '── or enter path manually ──',
         'upload.local.label':     'Video file / folder path',
+        'upload.local.bullet1':   'Drag files: auto upload and fill paths',
+        'upload.local.bullet2':   'Type manually: file or folder path, one per line',
+        'upload.local.bullet3':   'Folder: all videos under the folder will be scanned',
+        'upload.local.placeholder': 'e.g.\n/data/videos/mouse1.mp4\n/data/videos/batch1/',
         'upload.validate':        'Validate Paths',
+        'upload.validate.empty':  'Please enter at least one path',
+        'upload.validate.novideo': 'No supported video files (.mp4 .avi .mov .mkv .wmv) detected',
+        'upload.validate.success': '{} paths entered',
+        'upload.upload.success':  '{} files uploaded and added to list',
+        'upload.error.upload':    'Upload failed: ',
+        'upload.error.retry':     'Upload failed, please retry',
+        'upload.error.network':   'Network error, please check connection',
+        'upload.suggest.prefix':  'Suggested: ',
         'upload.uploading':       'Uploading...',
         'upload.config.title':    'Analysis Configuration',
         'upload.config.start':    'Start time (optional)',
@@ -372,6 +390,10 @@ const I18N = {
         'upload.config.outdir.hint': 'Desktop exclusive: results are saved directly to this folder',
         'upload.config.default':  'Default',
         'upload.config.submit':   'Proceed to Configuration',
+        'upload.status.ready':    'Ready to upload',
+        'upload.status.uploading': 'Uploading',
+        'upload.status.files':    'files',
+        'upload.status.done':     'files uploaded',
         'upload.side.title':      'Experiment Info',
         'upload.side.tst':        'Tail Suspension Test',
         'upload.side.tst.en':     'TST',
@@ -383,7 +405,6 @@ const I18N = {
         'upload.step3':           '3.Analyze',
         'upload.step4':           '4.Results',
 
-        /* ===== Calibrate — Step 1 ===== */
         'calib.step1':            '1. Body Length Calibration',
         'calib.step2':            '2. ROI Selection',
         'calib.step3':            '3. Parameter Tuning',
@@ -398,7 +419,6 @@ const I18N = {
         'calib.done.pixeldist':   'Body Length (pixels):',
         'calib.done.ratio':       'Calibration Ratio:',
 
-        /* ===== Calibrate — Step 2 ROI ===== */
         'calib.roi.batch.p1':     '1. Batch mode: all videos will share the same ROI configuration.',
         'calib.roi.batch.p2':     '2. Click multiple points in the image to draw a polygon ROI.',
         'calib.roi.batch.p3':     '3. Click "Finish Current ROI" when done.',
@@ -417,7 +437,6 @@ const I18N = {
         'calib.roi.list.title':   'ROI List',
         'calib.roi.list.empty':   'No ROI drawn yet',
 
-        /* ===== Calibrate — Step 3 Debug ===== */
         'calib.debug.instr':           'Adjust detection parameters and preview the result in real time. Click "Start Analysis" when satisfied.',
         'calib.debug.orig':            'Original Frame',
         'calib.debug.result':          'Detection Result',
@@ -440,7 +459,6 @@ const I18N = {
         'calib.debug.gen.video.hint':  '(Uncheck to speed up ~20%)',
         'calib.debug.btn.start':       'Start Analysis',
 
-        /* ===== License Page ===== */
         'license.page.title':        'End User License Agreement (EULA)',
         'license.page.warning':      'Important: This software is for academic research only. Commercial use and redistribution are strictly prohibited.',
         'license.page.card1.title':  'Academic Research ✓',
@@ -450,7 +468,6 @@ const I18N = {
         'license.page.card3.title':  'Redistribution ✗',
         'license.page.card3.desc':   'Uploading to public platforms prohibited',
 
-        /* ===== Monitor ===== */
         'monitor.title':          'Live Analysis Monitor',
         'monitor.subtitle':       'Real-time progress & performance tracking',
         'monitor.stop':           'Stop Analysis',
@@ -473,7 +490,6 @@ const I18N = {
         'monitor.file.desc':      'The ZIP contains the analysis video, frame-level CSV, immobility CSV and text report. Desktop users can click "Open Result Folder" to view in file manager.',
         'monitor.perf.title':     'Performance Metrics',
 
-        /* ===== Manual ===== */
         'manual.h1':                  'User Manual',
         'manual.subtitle':            'Step-by-step guide from video recording to final results',
         'manual.btn.back':            'Back to Home',
@@ -635,8 +651,6 @@ const I18N = {
 };
 
 // ─────────────────────────────────────────
-// 核心：读取/写入当前语言
-// ─────────────────────────────────────────
 function getLang() {
     return localStorage.getItem('mousescope_lang') || 'zh';
 }
@@ -645,9 +659,6 @@ function setLang(lang) {
     localStorage.setItem('mousescope_lang', lang);
 }
 
-// ─────────────────────────────────────────
-// 将翻译应用到 DOM
-// ─────────────────────────────────────────
 function applyLang(lang) {
     const dict = I18N[lang] || I18N['zh'];
 
@@ -656,7 +667,6 @@ function applyLang(lang) {
         const val = dict[key];
         if (val === undefined) return;
 
-        // 区分 placeholder / innerHTML / textContent
         const attr = el.getAttribute('data-i18n-attr');
         if (attr) {
             el.setAttribute(attr, val);
@@ -667,22 +677,15 @@ function applyLang(lang) {
         }
     });
 
-    // 更新 <html lang>
     document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
 }
 
-// ─────────────────────────────────────────
-// 切换语言
-// ─────────────────────────────────────────
 function toggleLang() {
     const next = (getLang() === 'zh') ? 'en' : 'zh';
     setLang(next);
     applyLang(next);
 }
 
-// ─────────────────────────────────────────
-// 页面加载时自动应用
-// ─────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
     applyLang(getLang());
 });

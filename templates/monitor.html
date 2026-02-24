@@ -6,7 +6,7 @@
     <div class="col-12">
         <div class="d-flex justify-content-between align-items-center">
             <div>
-                <h1 class="display-6 gradient-text mb-2"><i class="fas fa-chart-line me-3"></i><span data-i18n="monitor.title">实时分析监控</span></h1>
+                <h1 class="display-6 cyber-text mb-2"><i class="fas fa-chart-line me-3" style="color:var(--primary-color);"></i><span data-i18n="monitor.title">实时分析监控</span></h1>
                 <p class="text-secondary" data-i18n="monitor.subtitle">实时追踪分析进度与性能指标</p>
             </div>
             <div class="btn-group">
@@ -20,10 +20,9 @@
 
 <div class="row">
     <div class="col-lg-8">
-        <!-- 状态总览 -->
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="cyber-text mb-0"><i class="fas fa-microchip me-2"></i><span data-i18n="monitor.status.title">处理状态</span></h5>
+                <h5 class="cyber-text mb-0"><i class="fas fa-microchip me-2" style="color:var(--primary-color);"></i><span data-i18n="monitor.status.title">处理状态</span></h5>
             </div>
             <div class="card-body">
                 <div class="data-grid mb-4">
@@ -41,15 +40,13 @@
                     </div>
                 </div>
 
-                <div class="progress mb-4" style="height: 12px;">
-                    <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0%" aria-valuenow="0"
-                        aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress mb-4">
+                    <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-
                 <div class="tech-panel">
-                    <h6 class="gradient-text mb-2"><i class="fas fa-terminal me-2"></i><span data-i18n="monitor.engine">处理状态</span></h6>
-                    <div class="bg-dark bg-opacity-50 rounded p-3">
-                        <code class="text-info" id="messageText" data-i18n="monitor.waiting">等待引擎响应...</code>
+                    <h6 class="cyber-text mb-2"><i class="fas fa-terminal me-2"></i><span data-i18n="monitor.engine">处理状态</span></h6>
+                    <div class="rounded p-3" style="background:#0f172a;color:#e2e8f0;font-family:monospace;font-size:0.85rem;">
+                        <code id="messageText" data-i18n="monitor.waiting">等待引擎响应...</code>
                     </div>
                 </div>
 
@@ -89,11 +86,9 @@
                 </div>
             </div>
         </div>
-
-        <!-- 性能指标 -->
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="cyber-text mb-0"><i class="fas fa-tachometer-alt me-2"></i><span data-i18n="monitor.perf.title">性能指标</span></h5>
+                <h5 class="cyber-text mb-0"><i class="fas fa-tachometer-alt me-2" style="color:var(--primary-color);"></i><span data-i18n="monitor.perf.title">性能指标</span></h5>
             </div>
             <div class="card-body">
                 <div class="data-grid">
@@ -116,12 +111,10 @@
             </div>
         </div>
     </div>
-
-    <!-- 侧边栏 -->
     <div class="col-lg-4">
         <div class="card mb-4">
             <div class="card-header">
-                <h6 class="cyber-text mb-0"><i class="fas fa-satellite-dish me-2"></i>实时数据</h6>
+                <h6 class="cyber-text mb-0"><i class="fas fa-satellite-dish me-2" style="color:var(--primary-color);"></i>实时数据</h6>
             </div>
             <div class="card-body">
                 <div id="realtimeData">
@@ -135,7 +128,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h6 class="cyber-text mb-0"><i class="fas fa-terminal me-2"></i>系统日志</h6>
+                <h6 class="cyber-text mb-0"><i class="fas fa-terminal me-2" style="color:var(--primary-color);"></i>系统日志</h6>
             </div>
             <div class="card-body p-0">
                 <div id="logContainer" class="terminal-log">
@@ -148,7 +141,7 @@
                         <span class="terminal-title">analysis.log</span>
                     </div>
                     <div class="terminal-content">
-                        <p class="text-success"><span class="text-warning">$</span> 等待日志输出...</p>
+                        <p class="text-success mb-0"><span class="text-warning">$</span> 等待日志输出...</p>
                     </div>
                 </div>
             </div>
@@ -158,7 +151,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script>
     const sessionId = '{{ session_id }}';
     let updateInterval;
 
@@ -183,8 +175,6 @@
                     document.getElementById('processingSpeed').textContent = (data.stats.fps || 0).toFixed(1) + ' fps';
                 }
 
-                // 日志
-                const logContainer = document.querySelector('.terminal-content');
                 if (data.logs && data.logs.length > 0) {
                     logContainer.innerHTML = data.logs.map(log => {
                         let cls = 'text-success';
@@ -196,7 +186,6 @@
                     logContainer.scrollTop = logContainer.scrollHeight;
                 }
 
-                // 实时数据
                 const realtimeData = document.getElementById('realtimeData');
                 if (data.realtime_data && data.realtime_data.length > 0) {
                     realtimeData.innerHTML = data.realtime_data.map(item => `
@@ -216,7 +205,6 @@
                     </div>`).join('');
                 }
 
-                // 完成
                 if (data.status === 'completed') {
                     document.getElementById('downloadSection').style.display = 'block';
                     document.getElementById('stopBtn').style.display = 'none';
@@ -226,7 +214,6 @@
                     document.getElementById('dlImmCsv').href = `/api/download/${sessionId}/immobility_csv`;
                     document.getElementById('dlReport').href = `/api/download/${sessionId}/report`;
                     clearInterval(updateInterval);
-                    // 获取并显示结果文件夹路径
                     fetchResultDir();
                 }
                 if (data.status === 'error' || data.status === 'stopped') {
@@ -250,9 +237,7 @@
             .then(r => r.json())
             .then(data => {
                 if (data.success) {
-                    // 文件管理器已打开
                 } else {
-                    // 打开失败，至少显示路径让用户手动复制
                     alert('打开文件夹失败，结果保存在：\n' + (data.path || '未知路径'));
                 }
             })
@@ -277,148 +262,4 @@
     updateInterval = setInterval(updateStatus, 2000);
 </script>
 
-<style>
-    .data-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 1rem;
-    }
-
-    .stat-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 1.25rem;
-        text-align: center;
-        position: relative;
-        transition: all 0.3s;
-    }
-
-    .stat-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0, 242, 254, 0.15);
-    }
-
-    .stat-icon {
-        font-size: 1.5rem;
-        color: var(--accent-color);
-        margin-bottom: 0.5rem;
-    }
-
-    .stat-value {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--text-primary);
-    }
-
-    .stat-label {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        margin-top: 0.25rem;
-    }
-
-    .terminal-log {
-        background: #1a1a2e;
-        border-radius: 0 0 12px 12px;
-        max-height: 300px;
-        overflow: hidden;
-    }
-
-    .terminal-header {
-        background: rgba(255, 255, 255, 0.08);
-        padding: 8px 12px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .terminal-controls {
-        display: flex;
-        gap: 6px;
-    }
-
-    .terminal-btn {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        display: inline-block;
-    }
-
-    .terminal-close {
-        background: #ff5f57;
-    }
-
-    .terminal-minimize {
-        background: #ffbd2e;
-    }
-
-    .terminal-maximize {
-        background: #28c840;
-    }
-
-    .terminal-title {
-        color: var(--text-muted);
-        font-size: 0.8rem;
-        margin-left: auto;
-    }
-
-    .terminal-content {
-        padding: 12px;
-        font-family: 'Courier New', monospace;
-        font-size: 0.8rem;
-        max-height: 250px;
-        overflow-y: auto;
-    }
-
-    .status-analyzing {
-        background: var(--accent-color);
-        animation: statusPulse 2s ease-in-out infinite;
-    }
-
-    .status-completed {
-        background: var(--success-color);
-    }
-
-    .status-error {
-        background: var(--danger-color);
-    }
-
-    .status-stopped {
-        background: var(--warning-color);
-    }
-
-    .tech-spinner {
-        width: 40px;
-        height: 40px;
-        border: 3px solid rgba(0, 242, 254, 0.2);
-        border-top: 3px solid var(--accent-color);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 0 auto;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes statusPulse {
-
-        0%,
-        100% {
-            transform: scale(1);
-            box-shadow: 0 0 5px currentColor;
-        }
-
-        50% {
-            transform: scale(1.2);
-            box-shadow: 0 0 15px currentColor;
-        }
-    }
-</style>
 {% endblock %}

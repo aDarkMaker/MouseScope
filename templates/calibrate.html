@@ -3,163 +3,27 @@
 
 {% block extra_css %}
 <style>
-    .calibration-container {
-        background: rgba(255, 255, 255, 0.08);
-        border: var(--border-glow);
-        border-radius: 15px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        margin-bottom: 2rem;
-    }
-
-    .calibration-steps {
-        display: flex;
-        justify-content: space-around;
-        padding: 1.5rem;
-        background: rgba(255, 255, 255, 0.03);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .calibration-step {
-        text-align: center;
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        transition: all 0.3s;
-        color: var(--text-secondary);
-        cursor: pointer;
-    }
-
-    .calibration-step.active {
-        background: var(--primary-color);
-        color: white;
-        box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-    }
-
-    .calibration-step.completed {
-        background: #28a745;
-        color: white;
-    }
-
-    .calibration-content {
-        padding: 2rem;
-        color: var(--text-primary);
-    }
-
-    .canvas-container {
-        position: relative;
-        display: inline-block;
-        border: 2px solid rgba(0, 242, 254, 0.3);
-        border-radius: 12px;
-        overflow: hidden;
-        background: #000;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        margin: 1rem 0;
-    }
-
-    .canvas-container canvas {
-        display: block;
-        cursor: crosshair;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .calibration-instruction {
-        background: rgba(0, 242, 254, 0.1);
-        border-left: 4px solid var(--accent-color);
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
-        border-radius: 8px;
-    }
-
-    .calibration-info-box {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 1.25rem;
-        border-radius: 12px;
-        margin-top: 1.5rem;
-    }
-
-    .calibration-info-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        color: var(--text-secondary);
-    }
-
-    .calibration-info-item:last-child {
-        border-bottom: none;
-    }
-
-    .calibration-info-item span:last-child {
-        color: var(--text-primary);
-        font-weight: 500;
-    }
-
-    .roi-item {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 0.75rem;
-        margin-bottom: 0.5rem;
-        border-radius: 8px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .param-group {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        border-radius: 12px;
-    }
-
-    .param-group h5 {
-        color: var(--accent-color);
-        margin-bottom: 1rem;
-        font-weight: 600;
-    }
-
-    .step-content {
-        display: none;
-    }
-
-    .step-content.active {
-        display: block;
-    }
-
-    .loading-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-    }
-
-    .spinner {
-        width: 60px;
-        height: 60px;
-        border: 4px solid rgba(0, 242, 254, 0.3);
-        border-top: 4px solid var(--accent-color);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+.calibration-container { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-card); overflow: hidden; margin-bottom: 1.5rem; }
+.calibration-steps { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; padding: 1rem; background: var(--bg-page); border-bottom: 1px solid var(--border-card); }
+.calibration-step { padding: 0.5rem 1rem; border-radius: var(--radius-btn); font-weight: 500; font-size: 0.9rem; color: var(--text-muted); cursor: pointer; transition: background 0.2s, color 0.2s; }
+.calibration-step.active { background: rgba(37, 99, 235, 0.12); color: var(--primary-color); }
+.calibration-step.completed { color: var(--success-color); }
+.calibration-content { padding: 1.5rem; color: var(--text-primary); }
+.canvas-container { position: relative; display: inline-block; border: 1px solid var(--border-card); border-radius: var(--radius-btn); overflow: hidden; background: #111; margin: 1rem 0; }
+.canvas-container canvas { display: block; cursor: crosshair; max-width: 100%; height: auto; }
+.calibration-instruction { background: #e0f2fe; border-left: 4px solid var(--accent-cyan); padding: 1rem; margin-bottom: 1rem; border-radius: 0 var(--radius-btn) var(--radius-btn) 0; }
+.calibration-info-box { background: var(--bg-page); border: 1px solid var(--border-card); padding: 1rem; border-radius: var(--radius-btn); margin-top: 1rem; }
+.calibration-info-item { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-card); color: var(--text-secondary); }
+.calibration-info-item:last-child { border-bottom: none; }
+.calibration-info-item span:last-child { color: var(--text-primary); font-weight: 600; }
+.roi-item { background: var(--bg-page); border: 1px solid var(--border-card); padding: 0.75rem; margin-bottom: 0.5rem; border-radius: var(--radius-btn); display: flex; justify-content: space-between; align-items: center; }
+.param-group { background: var(--bg-page); border: 1px solid var(--border-card); padding: 1rem; margin-bottom: 1rem; border-radius: var(--radius-btn); }
+.param-group h5 { color: var(--primary-dark); margin-bottom: 0.75rem; font-weight: 600; font-size: 0.95rem; }
+.step-content { display: none; }
+.step-content.active { display: block; }
+.loading-overlay { position: fixed; inset: 0; background: rgba(240,244,248,0.9); display: flex; justify-content: center; align-items: center; z-index: 9999; }
+.spinner { width: 48px; height: 48px; border: 3px solid var(--border-card); border-top-color: var(--accent-cyan); border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 </style>
 {% endblock %}
 
@@ -169,8 +33,7 @@
 </div>
 
 <div class="container-fluid">
-    <!-- 步骤导航 -->
-    <div class="calibration-steps mb-4">
+    <div class="calibration-steps mb-4" role="tablist">
         <div class="calibration-step active" id="stepNav1" onclick="goToStep(1)">
             <i class="fas fa-ruler me-1"></i> <span data-i18n="calib.step1">1. 体长标定</span>
         </div>
@@ -181,8 +44,6 @@
             <i class="fas fa-sliders-h me-1"></i> <span data-i18n="calib.step3">3. 参数调试</span>
         </div>
     </div>
-
-    <!-- 步骤1：体长标定 -->
     <div id="calibration-step" class="step-content active">
         <div class="calibration-instruction">
             <p data-i18n="calib.instr.p1">1. 在画面中选择一只老鼠，点击头部然后点击尾部画一条线</p>
@@ -191,16 +52,16 @@
         </div>
 
         <div class="row align-items-center mb-4">
-            <div class="col-auto"><label class="form-label text-light" data-i18n="calib.frame.label">选择帧:</label></div>
+            <div class="col-auto"><label class="form-label" data-i18n="calib.frame.label">选择帧:</label></div>
             <div class="col"><input type="range" class="form-range" id="frameSlider" min="0" max="1000" value="0"
                     oninput="onFrameSliderChange(this.value)"></div>
-            <div class="col-auto"><span id="frameLabel" class="text-light">帧 0 / 1000</span></div>
+            <div class="col-auto"><span id="frameLabel" class="text-muted">帧 0 / 1000</span></div>
         </div>
 
         <div class="text-center mb-4">
             <div class="canvas-container">
                 <canvas id="calibCanvas"
-                    style="max-width: 800px; min-height: 400px; border: 2px solid rgba(0,242,254,0.3); background: #000;"></canvas>
+                    style="max-width: 800px; min-height: 400px; background: #000;"></canvas>
             </div>
         </div>
 
@@ -218,8 +79,6 @@
             <div class="calibration-info-item"><span data-i18n="calib.done.ratio">标定比例:</span><span id="pixelToMm">-</span></div>
         </div>
     </div>
-
-    <!-- 步骤2：ROI选择 -->
     <div id="roi-step" class="step-content" style="display:none;">
         <div class="calibration-instruction">
             {% if is_batch %}
@@ -238,7 +97,7 @@
 
         {% if is_batch %}
         <div class="row align-items-center mb-4">
-            <div class="col-auto"><label class="form-label text-light" data-i18n="calib.roi.preview.label">预览视频:</label></div>
+            <div class="col-auto"><label class="form-label" data-i18n="calib.roi.preview.label">预览视频:</label></div>
             <div class="col">
                 <select class="form-select" id="videoSelector" onchange="onVideoChange(this.value)">
                     {% for video in video_list %}
@@ -250,16 +109,16 @@
         {% endif %}
 
         <div class="row align-items-center mb-4">
-            <div class="col-auto"><label class="form-label text-light" data-i18n="calib.frame.label">选择帧:</label></div>
+            <div class="col-auto"><label class="form-label" data-i18n="calib.frame.label">选择帧:</label></div>
             <div class="col"><input type="range" class="form-range" id="frameSliderROI" min="0" max="1000" value="0"
                     oninput="onROIFrameSliderChange(this.value)"></div>
-            <div class="col-auto"><span id="frameLabelROI" class="text-light">帧 0 / 1000</span></div>
+            <div class="col-auto"><span id="frameLabelROI" class="text-muted">帧 0 / 1000</span></div>
         </div>
 
         <div class="text-center mb-4">
             <div class="canvas-container">
                 <canvas id="roiCanvas"
-                    style="max-width: 800px; min-height: 400px; border: 2px solid rgba(0,242,254,0.3); background: #000;"></canvas>
+                    style="max-width: 800px; min-height: 400px; background: #000;"></canvas>
             </div>
         </div>
 
@@ -280,18 +139,16 @@
             </div>
         </div>
     </div>
-
-    <!-- 步骤3：参数调试 -->
     <div id="debug-step" class="step-content" style="display:none;">
         <div class="calibration-instruction">
             <p data-i18n="calib.debug.instr">调整检测参数，实时预览效果。确认参数后点击“开始分析”</p>
         </div>
 
         <div class="row align-items-center mb-4">
-            <div class="col-auto"><label class="form-label text-light" data-i18n="calib.frame.label">选择帧:</label></div>
+            <div class="col-auto"><label class="form-label" data-i18n="calib.frame.label">选择帧:</label></div>
             <div class="col"><input type="range" class="form-range" id="frameSliderDebug" min="0" max="1000" value="0"
                     oninput="onDebugFrameSliderChange(this.value)"></div>
-            <div class="col-auto"><span id="frameLabelDebug" class="text-light">帧 0 / 1000</span></div>
+            <div class="col-auto"><span id="frameLabelDebug" class="text-muted">帧 0 / 1000</span></div>
         </div>
 
         <div class="row g-3 mb-4">
@@ -299,14 +156,14 @@
                 <div class="calibration-info-box text-center">
                     <h5 class="mb-3"><i class="fas fa-video me-2"></i><span data-i18n="calib.debug.orig">原始帧</span></h5>
                     <canvas id="debugOriginal"
-                        style="width: 100%; height: 300px; border: 2px solid rgba(0,242,254,0.3); border-radius: 8px; background: #000;"></canvas>
+                        style="width: 100%; height: 300px; border: 1px solid var(--border-card); border-radius: var(--radius-btn); background: #000;"></canvas>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="calibration-info-box text-center">
                     <h5 class="mb-3"><i class="fas fa-search me-2"></i><span data-i18n="calib.debug.result">检测结果</span></h5>
                     <canvas id="debugResult"
-                        style="width: 100%; height: 300px; border: 2px solid rgba(0,242,254,0.3); border-radius: 8px; background: #000;"></canvas>
+                        style="width: 100%; height: 300px; border: 1px solid var(--border-card); border-radius: var(--radius-btn); background: #000;"></canvas>
                 </div>
             </div>
         </div>
@@ -389,7 +246,7 @@
             <div class="d-flex gap-2 align-items-center">
                 <div class="form-check form-switch me-3">
                     <input class="form-check-input" type="checkbox" id="generateVideo" checked>
-                    <label class="form-check-label text-light" for="generateVideo">
+                    <label class="form-check-label" for="generateVideo">
                         <span data-i18n="calib.debug.gen.video">生成结果视频</span> <span class="text-muted small" data-i18n="calib.debug.gen.video.hint">(取消可加速约20%)</span>
                     </label>
                 </div>

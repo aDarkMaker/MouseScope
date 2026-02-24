@@ -5,46 +5,35 @@
     <div class="col-lg-10">
         <div class="card">
             <div class="card-header">
-                <h5 class="cyber-text mb-0">
-                    <i class="fas fa-file-contract me-2"></i><span data-i18n="license.page.title">用户许可协议 (EULA)</span>
-                </h5>
+                <h5 class="cyber-text mb-0" data-i18n="license.page.title">用户许可协议 (EULA)</h5>
             </div>
             <div class="card-body">
-                <div class="alert alert-warning">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    <span data-i18n="license.page.warning">重要提示：本软件仅限学术研究使用，严禁用于任何商业目的，严禁二次分发。</span>
-                </div>
-
+                <div class="alert alert-warning"><span data-i18n="license.page.warning">重要提示：本软件仅限学术研究使用，严禁用于任何商业目的，严禁二次分发。</span></div>
                 <div class="row mb-4">
                     <div class="col-md-4">
-                        <div class="text-center p-3" style="background: rgba(102,126,234,0.1); border-radius: 12px;">
-                            <i class="fas fa-graduation-cap fa-2x text-primary mb-2"></i>
-                            <h6 class="text-primary" data-i18n="license.page.card1.title">学术研究 ✓</h6>
+                        <div class="card border-0 bg-light text-center p-3">
+                            <h6 class="text-primary mb-1" data-i18n="license.page.card1.title">学术研究 ✓</h6>
                             <small class="text-muted" data-i18n="license.page.card1.desc">可免费用于科研和教学</small>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="text-center p-3" style="background: rgba(255,107,107,0.1); border-radius: 12px;">
-                            <i class="fas fa-store-slash fa-2x text-danger mb-2"></i>
-                            <h6 class="text-danger" data-i18n="license.page.card2.title">商业使用 ✗</h6>
+                        <div class="card border-0 bg-light text-center p-3">
+                            <h6 class="text-danger mb-1" data-i18n="license.page.card2.title">商业使用 ✗</h6>
                             <small class="text-muted" data-i18n="license.page.card2.desc">禁止出售、出租或有偿服务</small>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="text-center p-3" style="background: rgba(255,107,107,0.1); border-radius: 12px;">
-                            <i class="fas fa-ban fa-2x text-danger mb-2"></i>
-                            <h6 class="text-danger" data-i18n="license.page.card3.title">二次分发 ✗</h6>
+                        <div class="card border-0 bg-light text-center p-3">
+                            <h6 class="text-danger mb-1" data-i18n="license.page.card3.title">二次分发 ✗</h6>
                             <small class="text-muted" data-i18n="license.page.card3.desc">禁止上传到公共平台传播</small>
                         </div>
                     </div>
                 </div>
-
-                <div style="white-space: pre-wrap; font-family: monospace; font-size: 0.85rem; max-height: 600px; overflow-y: auto; padding: 1.5rem; background: rgba(0,0,0,0.3); border-radius: 10px; line-height: 1.7; border: 1px solid rgba(255,255,255,0.05);">{{ license_text }}</div>
-
+                <div class="license-text-wrap">
+                    <div class="license-text-block mb-0" style="max-height: 600px; padding: 1.25rem; background: var(--bg-page); border: 1px solid var(--border-card); border-radius: var(--radius-btn);">{{ license_text }}</div>
+                </div>
                 <div class="mt-4 text-center">
-                    <a href="{{ url_for('index') }}" class="btn btn-primary">
-                        <i class="fas fa-arrow-left me-2"></i><span data-i18n="manual.btn.back">返回首页</span>
-                    </a>
+                    <a href="{{ url_for('index') }}" class="btn btn-primary"><span data-i18n="manual.btn.back">返回首页</span></a>
                 </div>
             </div>
         </div>
